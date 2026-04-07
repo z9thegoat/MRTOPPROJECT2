@@ -34,6 +34,7 @@ app.get("/devices", (req, res) => {
 io.on("connection", (socket) => {
   console.log("Client connected:", socket.id);
   console.log("Client Count:", io.sockets.sockets.size);
+
   let c;
   let linkType;
   let ipSet = new Set();
@@ -115,6 +116,45 @@ io.on("connection", (socket) => {
         ipSet.add(src);
         ipSet.add(dst);
 
+        let payload = null;
+
+        try {
+          let dataOffset = null;
+
+          switch (ip.info.protocol) {
+            case 6: // TCP
+              const tcp = decoders.TCP(buffer, ip.offset);
+              dataOffset = tcp.offset;
+              break;
+
+            case 17: // UDP
+              const udp = decoders.UDP(buffer, ip.offset);
+              dataOffset = udp.offset;
+              break;
+
+            case 1: // ICMP
+              const icmp = decoders.ICMP(buffer, ip.offset);
+              dataOffset = icmp.offset;
+              break;
+
+            default:
+              dataOffset = ip.offset;
+              break;
+          }
+
+          if (dataOffset !== null) {
+            payload = buffer
+              .slice(dataOffset, dataOffset + 200)
+              .toString("utf8")
+              .replace(/\0/g, "");
+          }
+        } catch (e) {
+          payload = null;
+        }
+
+        const method =
+          payload && /^[A-Z]+ /.test(payload) ? payload.split(" ")[0] : null;
+
         packetBuffer.push({
           src,
           dst,
@@ -124,6 +164,8 @@ io.on("connection", (socket) => {
           timestamp: Date.now(),
           srcPort,
           dstPort,
+          payload,
+          method,
         });
       }
     });
