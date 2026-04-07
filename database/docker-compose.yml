@@ -1,0 +1,37 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: mrtop-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: mrtop
+      MYSQL_USER: mrtop
+      MYSQL_PASSWORD: mrtop
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - mrtop-network
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: mrtop-phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+    ports:
+      - "8080:80"
+    networks:
+      - mrtop-network
+    depends_on:
+      - db
+
+networks:
+  mrtop-network:
+    name: mrtop-network
+
+volumes:
+  mysql-data:

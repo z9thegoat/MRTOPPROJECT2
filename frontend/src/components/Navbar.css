@@ -1,0 +1,144 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap");
+
+/* ─── Navbar shell ─── */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 28px;
+  height: 60px;
+  background: #ffffff;
+  border-bottom: 1.5px solid #e8e7e2;
+  font-family: "DM Sans", sans-serif;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* ─── Logo ─── */
+.navbar__logo a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1916;
+  letter-spacing: -0.02em;
+}
+
+.navbar__logo-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a1916;
+  flex-shrink: 0;
+}
+
+/* ─── Nav links ─── */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar__links li a {
+  display: block;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  color: #a09f99;
+  text-decoration: none;
+  border-radius: 8px;
+  transition:
+    background 0.12s,
+    color 0.12s;
+}
+
+.navbar__links li a:hover {
+  background: #f5f4f0;
+  color: #1a1916;
+}
+
+.navbar__links li a.active {
+  background: #1a1916;
+  color: #ffffff;
+}
+
+/* ─── Right side ─── */
+.navbar__right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ─── Avatar chip ─── */
+.navbar__avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: #ddeeff;
+  color: #1a5fa8;
+  font-size: 11px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+/* ─── Logout button ─── */
+.navbar__logout {
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 16px;
+  border-radius: 9px;
+  border: 1.5px solid #e8e7e2;
+  background: transparent;
+  color: #6b6a63;
+  cursor: pointer;
+  transition:
+    background 0.12s,
+    border-color 0.12s,
+    color 0.12s;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.navbar__logout:hover {
+  background: #fff5f5;
+  border-color: #fcd5d5;
+  color: #c0392b;
+}
+
+.navbar__logout:active {
+  transform: scale(0.97);
+}
+
+.navbar__logout-icon {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+/* ─── Mobile ─── */
+@media (max-width: 640px) {
+  .navbar {
+    padding: 0 18px;
+  }
+
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__avatar {
+    display: none;
+  }
+}

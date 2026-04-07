@@ -1,0 +1,260 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.page {
+  font-family: "DM Sans", sans-serif;
+  background: #f5f4f0;
+  min-height: 100vh;
+  padding: 24px;
+  color: #1a1916;
+  font-size: 13px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1a1916;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #1a1916;
+  flex-shrink: 0;
+}
+.liveDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1d9e75;
+  flex-shrink: 0;
+  animation: pulse 1.4s infinite;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  border: 1.5px solid #e8e7e2;
+  background: #fff;
+  color: #a09f99;
+}
+.badge.live {
+  border: 1.5px solid #9fe1cb;
+  background: #e1f5ee;
+  color: #0f6e56;
+}
+
+.controls {
+  background: #fff;
+  border: 1.5px solid #e8e7e2;
+  border-radius: 12px;
+  padding: 14px 20px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.ctrlGroup {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.label {
+  font-size: 12px;
+  color: #a09f99;
+  font-weight: 500;
+}
+.select,
+.input {
+  font-family: "DM Sans", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 7px 12px;
+  border-radius: 9px;
+  border: 1px solid #e8e7e2;
+  outline: none;
+  background: #fff;
+  color: #1a1916;
+}
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 10 6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%23a09f99'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+.divider {
+  width: 1px;
+  height: 24px;
+  background: #e8e7e2;
+  flex-shrink: 0;
+}
+.btnClear {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 7px 14px;
+  border-radius: 9px;
+  border: 1px solid #e8e7e2;
+  background: transparent;
+  color: #6b6a63;
+  cursor: pointer;
+}
+.btnClear:hover {
+  background: #f5f4f0;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.metricCard {
+  background: #f1efeb;
+  border-radius: 8px;
+  padding: 14px 16px;
+}
+.metricLabel {
+  font-size: 11px;
+  color: #a09f99;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 6px;
+}
+.metricValue {
+  font-size: 22px;
+  font-weight: 500;
+  color: #1a1916;
+  letter-spacing: -0.02em;
+}
+.metricSub {
+  font-size: 11px;
+  color: #a09f99;
+  margin-top: 3px;
+}
+
+.chartsRow {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+.card {
+  background: #fff;
+  border: 1.5px solid #e8e7e2;
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+.cardTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1916;
+}
+.packetDetailPanel{
+    padding: 28px;
+}
+.tableCard {
+  background: #fff;
+  border: 1.5px solid #e8e7e2;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+.tableHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1.5px solid #e8e7e2;
+}
+th {
+  font-size: 11px;
+  font-weight: 500;
+  color: #a09f99;
+  text-align: left;
+  padding: 10px 20px;
+  border-bottom: 1px solid #f0efeb;
+  background: #fafaf8;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+td {
+  padding: 11px 20px;
+  border-bottom: 1px solid #f0efeb;
+  color: #1a1916;
+  font-size: 12px;
+}
+.enc-yes {
+  color: #1d9e75;
+  font-weight: 500;
+}
+.enc-no {
+  color: #d85a30;
+  font-weight: 500;
+}
+
+.detailPanel {
+  background: #fafaf8;
+  border-top: 1.5px solid #e8e7e2;
+  padding: 16px 20px;
+}
+.detailRow {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+.detailKey {
+  color: #a09f99;
+  min-width: 100px;
+}
+.btnClose {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid #e8e7e2;
+  background: transparent;
+  color: #6b6a63;
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}

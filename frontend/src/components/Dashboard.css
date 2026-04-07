@@ -1,0 +1,292 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f5f4f0;
+  font-family: "DM Sans", sans-serif;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+/* ─── Page wrapper ─── */
+.dashboard {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+/* ─── Header ─── */
+.dashboard__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 28px;
+}
+
+.dashboard__label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #a09f99;
+  margin-bottom: 4px;
+}
+
+.dashboard__title {
+  font-size: 26px;
+  font-weight: 600;
+  color: #1a1916;
+  letter-spacing: -0.02em;
+}
+
+.dashboard__count {
+  font-size: 13px;
+  font-weight: 400;
+  color: #a09f99;
+  padding-bottom: 4px;
+}
+
+/* ─── Search bar ─── */
+.dashboard__search-wrap {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.dashboard__search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #c0bfb8;
+  pointer-events: none;
+}
+
+.dashboard__search {
+  width: 100%;
+  padding: 11px 14px 11px 40px;
+  font-family: "DM Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #1a1916;
+  background: #ffffff;
+  border: 1.5px solid #e8e7e2;
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.dashboard__search::placeholder {
+  color: #c0bfb8;
+}
+
+.dashboard__search:focus {
+  border-color: #1a1916;
+}
+
+/* ─── Table card ─── */
+.dashboard__card {
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1.5px solid #e8e7e2;
+  overflow: hidden;
+}
+
+/* ─── Table ─── */
+.dashboard__table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* ─── Table head ─── */
+.dashboard__table thead tr {
+  border-bottom: 1.5px solid #e8e7e2;
+}
+
+.dashboard__table thead th {
+  padding: 12px 20px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #a09f99;
+  text-align: left;
+}
+
+/* ─── Table body ─── */
+.dashboard__table tbody tr {
+  border-bottom: 1px solid #f0efe9;
+  transition: background 0.1s;
+}
+
+.dashboard__table tbody tr:last-child {
+  border-bottom: none;
+}
+
+.dashboard__table tbody tr:hover {
+  background: #faf9f6;
+}
+
+.dashboard__table tbody td {
+  padding: 14px 20px;
+  font-size: 14px;
+  color: #1a1916;
+  vertical-align: middle;
+}
+
+/* ─── ID cell ─── */
+.cell-id {
+  font-family: "DM Mono", monospace;
+  font-size: 12px;
+  color: #c0bfb8;
+}
+
+/* ─── User cell ─── */
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
+}
+
+.avatar--blue {
+  background: #ddeeff;
+  color: #1a5fa8;
+}
+.avatar--teal {
+  background: #d4f4e8;
+  color: #0e6e4e;
+}
+.avatar--purple {
+  background: #eae6fb;
+  color: #5b48c4;
+}
+.avatar--amber {
+  background: #fdefd3;
+  color: #92580c;
+}
+.avatar--coral {
+  background: #fde8e1;
+  color: #b04325;
+}
+
+.user-email {
+  font-size: 14px;
+  color: #1a1916;
+  font-weight: 400;
+}
+
+/* ─── Role badge ─── */
+.role-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.role-badge::before {
+  content: "";
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+
+.role-badge--admin {
+  background: #ddeeff;
+  color: #1a5fa8;
+}
+.role-badge--admin::before {
+  background: #1a5fa8;
+}
+
+.role-badge--editor {
+  background: #d4f4e8;
+  color: #0e6e4e;
+}
+.role-badge--editor::before {
+  background: #0e6e4e;
+}
+
+.role-badge--viewer {
+  background: #f0efe9;
+  color: #6b6a63;
+}
+.role-badge--viewer::before {
+  background: #a09f99;
+}
+
+/* ─── Delete button ─── */
+.btn-delete {
+  font-family: "DM Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 6px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #fcd5d5;
+  background: #fff5f5;
+  color: #c0392b;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    border-color 0.15s,
+    transform 0.1s;
+}
+
+.btn-delete:hover {
+  background: #fde8e8;
+  border-color: #f5b3b3;
+}
+
+.btn-delete:active {
+  transform: scale(0.96);
+}
+
+/* ─── Empty state ─── */
+.dashboard__empty {
+  padding: 60px 20px;
+  text-align: center;
+  color: #a09f99;
+  font-size: 14px;
+}
+
+.dashboard__empty-icon {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.dashboard__refresh-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: #c0bfb8;
+  pointer-events: none;
+}
+
+.dashboard__refresh-btn {
+  border: none;
+  background-color: transparent;
+}
